@@ -9,9 +9,9 @@ LiquidCrystal lcd(10, 9, 8, 7, 6, 5);
 
 const int echo = 2;
 const int trig = 3;
-const int servoPin = 4;
+const int servoPin = 12;
 const int buzzer = 11;
-const int redLed = 12;
+const int redLed = 4;
 
 unsigned int distance = 0;
 int currentAngle = 0;
@@ -105,6 +105,7 @@ void lcdSetWarning() {
   lcd.print("Foreign Body");
   digitalWrite(buzzer, HIGH);
   digitalWrite(redLed, HIGH);
+  Serial.println("LED ON");
 }
 
 void lcdSetEmpty() {
@@ -114,5 +115,6 @@ void lcdSetEmpty() {
   lcd.setCursor(0, 1);
   lcd.print("                ");
   digitalWrite(buzzer, LOW);
+  Serial.println("LED OFF");
   digitalWrite(redLed, LOW);
 }
